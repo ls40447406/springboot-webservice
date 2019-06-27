@@ -1,8 +1,7 @@
 package com.lishuo.springboot.service.base;
 
-import com.lishuo.springboot.exception.ServiceException;
 import com.lishuo.springboot.pojo.base.BaseDTO;
-import com.lishuo.springboot.utils.MapperBase;
+import com.lishuo.springboot.utils.BaseMapper;
 import com.lishuo.springboot.utils.Constants;
 import com.lishuo.springboot.utils.Reflections;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ import java.util.List;
 public abstract class BaseService<T> implements Service<T> {
 
     @Autowired
-    private MapperBase<T> mapper;
+    private BaseMapper<T> mapper;
 
     private Class<T> entityClass;
 

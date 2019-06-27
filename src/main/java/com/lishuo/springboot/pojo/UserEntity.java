@@ -1,15 +1,15 @@
 package com.lishuo.springboot.pojo;
 
-import com.lishuo.springboot.pojo.base.BaseDTO;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Table(name = "test_user")
-public class UserEntity {
+public class UserEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +22,17 @@ public class UserEntity {
     private String userEmail;
     @Column(name = "version")
     private Integer version;
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", userTelephone='" + userTelephone + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", version=" + version +
+                '}';
+    }
 
     public Integer getVersion() {
         return version;

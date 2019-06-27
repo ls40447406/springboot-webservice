@@ -1,5 +1,6 @@
 package com.lishuo.springboot.service.base;
 
+import com.lishuo.springboot.exception.ServiceException;
 import com.lishuo.springboot.pojo.base.BaseDTO;
 import com.lishuo.springboot.utils.MapperBase;
 import com.lishuo.springboot.utils.Constants;

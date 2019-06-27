@@ -2,6 +2,7 @@ package com.lishuo.springboot.controller;
 
 
 import com.lishuo.springboot.base.Result;
+import com.lishuo.springboot.exception.ServiceException;
 import com.lishuo.springboot.pojo.UserEntity;
 import com.lishuo.springboot.service.UserService;
 import com.lishuo.springboot.utils.Results;
@@ -30,8 +31,13 @@ public class TestController {
 
     @RequestMapping(value = "/test/save",method = RequestMethod.POST, headers = "Accept=application/json")
     public Result save(@RequestBody UserEntity user){
-        user = userService.insertSelective(user);
-        return Results.successWithData(user);
+        try {
+            int a = 1 / 0 ;
+            user = userService.insertSelective(user);
+            return Results.successWithData(user);
+        } catch (Exception e) {
+            throw new ServiceException("system_error","服务异常");
+        }
     }
 
     @RequestMapping(value = "/test/update",method = RequestMethod.POST, headers = "Accept=application/json")

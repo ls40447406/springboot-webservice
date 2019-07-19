@@ -44,7 +44,6 @@ public class TestController {
     @RequestMapping(value = "/test/save",method = RequestMethod.POST, headers = "Accept=application/json")
     public void save(@RequestBody UserEntity user){
         try {
-
             redisTemplate.opsForValue().set("abc",user);
             redisTemplate.opsForList().rightPush("cbd",user);
             UserEntity abc = (UserEntity)redisTemplate.opsForValue().get("abc");
